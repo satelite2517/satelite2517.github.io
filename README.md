@@ -1,10 +1,8 @@
-# Minimal Theme
+# Sunjae Lee
 
-[Demo the Theme](https://orderedlist.com/minimal/)
+This is a blog for Sunjae Lee. 
+Check out the [link](satelite21572.github.io)
 
-This is the raw HTML and styles that are used for the *minimal* theme on [GitHub Pages](http://pages.github.com/).
-
-Syntax highlighting is provided on GitHub Pages by [Pygments](http://pygments.org).
 
 # License
 
