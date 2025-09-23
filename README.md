@@ -1,7 +1,7 @@
 # Sunjae Lee
 
 This is a blog for Sunjae Lee. 
-Check out the [link](https://satelite21572.github.io)
+Check out the [link](https://satelite2517.github.io)
 
 
 # License
