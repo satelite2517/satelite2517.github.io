@@ -2,4 +2,5 @@ image_*
 formal.html
 .DS_sotre
 cv/*
+!cv/cv_v1.tex
 !cv/cv_v1.pdf

@@ -1,0 +1,356 @@
+\documentclass[a4paper,12pt]{extarticle}
+
+% Package imports
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{marvosym}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{cfr-lm}
+\usepackage[T1]{fontenc}
+\usepackage{fontawesome5}
+
+% Color definitions
+\definecolor{darkblue}{RGB}{0,0,139}
+\definecolor{linkedinblue}{HTML}{0A66C2}
+\definecolor{black}{RGB}{0,0,0}
+
+% Page layout
+\setlength{\multicolsep}{0pt} 
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\geometry{left=1.35cm, top=1.8cm, right=1.35cm, bottom=0.8cm}
+\setlength{\footskip}{6pt} % Addressing fancyhdr warning
+
+% Hyperlink setup (moved after fancyhdr to address warning)
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  filecolor=black,
+  urlcolor=black,
+}
+
+% Custom box settings
+\usepackage[most]{tcolorbox}
+\tcbset{
+    frame code={},
+    center title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    colback=gray!20,
+    colframe=white,
+    width=\dimexpr\textwidth\relax,
+    enlarge left by=-2mm,
+    boxsep=6pt,
+    arc=0pt,outer arc=0pt,
+}
+
+% URL style
+\urlstyle{same}
+
+% Text alignment
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule ]
+
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item{
+    \textbf{#1}{\hspace{0.5mm}#2}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#4}} \\
+        \textit{\footnotesize{#3}} &  \footnotesize{#2}\\
+    \end{tabular*}
+}
+
+\newcommand{\resumeProject}[4]{
+  \item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#3}} \\
+        \footnotesize{\textit{#2}} & \footnotesize{#4}
+    \end{tabular*}
+
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}}
+
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand{\labelitemii}{$\vcenter{\hbox{\tiny$\circ$}}$}
+
+% Subheading list without bullets
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.3cm,label={},labelsep=0mm]}
+\newcommand{\resumeHeadingSkillStart}{\begin{itemize}[leftmargin=0.3cm,itemsep=1.7mm, rightmargin=2ex]}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.3cm,labelsep=1mm,itemsep=0.75mm]}
+
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeHeadingSkillEnd}{\end{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+\newcommand{\cvsection}[1]{%
+
+\begin{tcolorbox}
+    \textbf{\large #1}
+\end{tcolorbox}
+}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}%
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\newcolumntype{C}{>{\centering\arraybackslash}X}%
+
+% Commands for icon sizing and positioning
+\newcommand{\socialicon}[1]{\raisebox{-0.05em}{\resizebox{!}{1em}{#1}}}
+\newcommand{\mailicon}[1]{\raisebox{-0.08em}{\resizebox{!}{0.8em}{#1}}}
+\newcommand{\ieeeicon}[1]{\raisebox{-0.3em}{\resizebox{!}{1.3em}{#1}}}
+
+% Font options
+\newcommand{\headerfonti}{\fontfamily{phv}\selectfont} % Helvetica-like (similar to Arial/Calibri)
+\newcommand{\headerfontii}{\fontfamily{ptm}\selectfont} % Times-like (similar to Times New Roman)
+\newcommand{\headerfontiii}{\fontfamily{ppl}\selectfont} % Palatino (elegant serif)
+\newcommand{\headerfontiv}{\fontfamily{pbk}\selectfont} % Bookman (readable serif)
+\newcommand{\headerfontv}{\fontfamily{pag}\selectfont} % Avant Garde-like (similar to Trebuchet MS)
+\newcommand{\headerfontvi}{\fontfamily{cmss}\selectfont} % Computer Modern Sans Serif
+\newcommand{\headerfontvii}{\fontfamily{qhv}\selectfont} % Quasi-Helvetica (another Arial/Calibri alternative)
+\newcommand{\headerfontviii}{\fontfamily{qpl}\selectfont} % Quasi-Palatino (another elegant serif option)
+\newcommand{\headerfontix}{\fontfamily{qtm}\selectfont} % Quasi-Times (another Times New Roman alternative)
+\newcommand{\headerfontx}{\fontfamily{bch}\selectfont} % Charter (clean serif font)
+
+\begin{document}
+\headerfontii
+
+% Header
+\begin{center}
+    {\fontsize{23pt}{18pt}\selectfont \textbf{Sunjae Lee}} \\[0.6em]
+    \href{mailto:sl6100@columbia.edu}{\mailicon{\faEnvelope}\ sl6100@columbia.edu} |
+    \href{mailto:satelite2517@gmail.com}{\mailicon{\faEnvelope}\ satelite2517@gmail.com} |
+    \href{https://www.linkedin.com/in/sunjae-lee-81002727a/}{\textcolor{linkedinblue}{\raisebox{-0.08em}{\resizebox{!}{0.85em}{\faLinkedin}}}\ sunjae-lee}
+    %\href{https://satelite2517.github.io/}{satelite2517.github.io}
+\end{center}
+
+
+\section{\textbf{Research Interests}}
+\small{
+  \begingroup{}
+  \leftskip=0.3cm
+  My research focuses on contributing to the realization of a \textcolor{darkblue}{\textbf{magnetic-confinement fusion reactor.}}
+  Especially, I'm interested in these specific topics : 1) \textcolor{darkblue}{\textbf{kinetic MHD}} in 2) \textcolor{darkblue}{\textbf{negative triangularity(NT)}}, and 3) development of \textcolor{darkblue}{\textbf{AI-based high-performance simulations}}.
+  % \textbf{Topics :} \textit{MHD Stability; Negative triangularity; Artificial Intelligence (AI); High-performance computing;}
+  \par
+  \endgroup
+}
+
+% \section{\textbf{Research Interests}}
+% \small{
+%   \begingroup{}
+%   \leftskip=0.3cm
+%   My research focuses on advancing the understanding of \textcolor{darkblue}{\textbf{magnetic-confinement fusion physics}} toward more efficient and stable plasma operation.
+%   In particular, I am interested in (1) \textcolor{darkblue}{\textbf{MHD stability in negative-triangularity plasmas}} and (2) \textcolor{darkblue}{\textbf{AI-based high-performance plasma simulations}}.
+%   \par
+%   \endgroup
+% }
+
+
+\section{\textbf{Education}}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+  {Seoul National University}{Seoul, Korea}
+  {College of Liberal Studies / Dept. of Nuclear Engineering}{Mar 2021 – Jul 2026}
+  \resumeItemListStart
+    \item B.S. in \textbf{Computer Science \& Engineering} and \textbf{Physics} \hfill \textit{Feb 2026}
+    \item M.S. in \textbf{Nuclear Engineering}, enrolled Mar 2026 and withdrew in Jul 2026
+    \resumeSubItem{Relevant Coursework:}
+    {Fusion Plasma Theory (Grad); Intro to Nuclear Fusion; E\&M; Thermal \& Stat. Physics; Mathematical Methods of Physics;
+    Scalable HPC (Grad); Numerical Analysis; Intro to ML; Deep Learning}
+  \resumeItemListEnd
+
+  \resumeSubheading
+  {Columbia University in the City of New York}{New York, NY, USA}
+  {Applied Physics and Applied Mathematics (APAM)}{Beginning Fall 2026}
+  \resumeItemListStart
+    \item M.S./Ph.D. in \textbf{Applied Physics (Plasma Physics)}
+    \item Advisor: \textbf{Carlos Paz-Soldan}
+  \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\section{\textbf{Research Experiences}}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+    {Dept. of Nuclear Engineering, Seoul National University}{Seoul, Korea}
+    {Undergraduate Research Intern, 3DST Lab}{Sep 2024 – Present}
+    % {{}[\href{https://volunteer-org-a-link.com}{\textcolor{darkblue}{\faIcon{globe}}}]}
+    \resumeItemListStart
+      \item[] \href{https://nucleng.snu.ac.kr/about/people/faculty?mode=view&profidx=167}{\textbf{3 Dimensional Stellarator \& Tokamak Lab - Advisor: Prof. Jong-Kyu Park}}
+      \item Conducted stability analysis of NT using ideal, drift-kinetic, and full kinetic MHD models with GPEC suite
+      \item Found NT has stronger kinetic stabilization effect due to closed-orbit trapped particle's resonance 
+      \item Identified a second-stability region of the $n = 1$ in DIII-D NT and analyzed the effect of magnetic shear
+    \resumeItemListEnd
+
+    \resumeSubheading
+      {Princeton Plasma Physics Laboratory (PPPL)}{Princeton, NJ, USA}
+      {Research Student, SNU–PPPL Summer Collaboration}{Jul 2025 – Aug 2025}
+      % {{}[\href{https://volunteer-org-a-link.com}{\textcolor{darkblue}{\faIcon{globe}}}]}
+    \resumeItemListStart
+      \item Participated in the PPPL–SNU Summer Research Collaboration, focusing on nonlinear 3D MHD modeling, transport analysis, and pilot-plant design for NSTX-U and KSTAR plasmas
+      \item Learned and applied the BALOO code for edge-stability analysis in the K-DEMO project and NT 
+    \resumeItemListEnd
+
+    \resumeSubheading
+    {Dept. of Nuclear Engineering, Seoul National University}{Seoul, Korea}
+    {Undergraduate Research Intern, NUPLEX Lab}{Sep 2023 – Aug 2024}
+    \resumeItemListStart
+      \item[] \href{https://nucleng.snu.ac.kr/about/people/faculty?mode=view&profidx=169}{\textbf{Seoul National University Plasma \& Ion Beam Laboratory - Advisor: Prof. Y. S. Hwang}}
+      \item Designed and implemented a database for the Versatile Experiment Spherical Torus(VEST) using the IMAS–HSDS data architecture
+      \item Developed a post-processing tool (VAFT) for automated analysis of experimental diagnostic shot data
+      \item Explored operational space for the first time, identifying performance limits from current-driven instabilities
+    \resumeItemListEnd
+
+    % \resumeSubheading
+    %   {Dept. of Energy Resoureces Engineering, Seoul National University }{Seoul, Korea}
+    %   {Undergraduate Research Participant}{Apr 2022 – Dec 2022}
+    %   \resumeItemListStart
+    %     \item[] \href{https://eee.snu.ac.kr/}{Electrochemical Energy Engineering Laboratory - Advisor: Prof. Jin soo Kang}
+    %     \item Conducted CDI-based lithium recovery experiments and assessed scalability via efficiency comparison
+    % \resumeItemListEnd 
+    
+  \resumeSubHeadingListEnd
+
+%%%%%
+
+\section*{\textbf{Publications} \hfill {\scriptsize \textit{J: Journal, C: Conference}}}
+\small{\begin{enumerate}[leftmargin=*, labelsep=0.5em, align=left, widest={[\textbf{S.1}]}, itemindent=0.3cm, label={\textbf{[\arabic*]}}]
+
+\item[\textbf{[J.1]}] Hong-Sik Yun$^{\dagger}$, \textbf{Sunjae Lee$^{\dagger}$}, Laurent Jung, et al. (2025). \href{https://doi.org/10.1088/1361-6587/ae1b6a}
+{\textbf{Developing an IMAS-Compatible Platform for the University-Level Tokamak VEST and Its Application in Operating Characteristics Analysis}}. 
+\textit{Plasma Physics and Controlled Fusion}, Vol. 67, DOI:10.1088/1361-6587/ae1b6a
+%  Vol. 00, Issue 0, pp. 000-000.
+
+$^{\dagger}$ These authors contributed equally to this work.
+\end{enumerate}
+}
+
+\section*{\textbf{Orals \& Posters}\hfill {\scriptsize \textit{P: Poster presentations, O: Oral presentations}}}
+\small{
+  
+\begin{enumerate}[leftmargin=*, labelsep=0.5em, align=left, widest={[\textbf{S.1}]}, itemindent=0em, label={\textbf{[\arabic*]}}]
+
+\item[\textbf{[P.1]}] \textbf{S. J. Lee}, J. B. Cho, O. Nelson, C. Paz-Soldan, J.-K. Park. (2025). \href{https://satelite2517.github.io/files/2025_Nov_APS-DPP.pdf}{\textbf{Kinetic MHD Stability of Low-n Modes in Negative Triangularity Plasmas}}.  
+\textit{67th Annual Meeting of the APS Division of Plasma Physics}, Long Beach, CA, USA (Nov 2025) 
+% \href{https://schedule.aps.org/dpp/2025/events/BP13/138}{\textcolor{darkblue}{(Abstract)}}
+
+\item[\textbf{[P.2]}] \textbf{S. J. Lee}, J. B. Cho, O. Nelson, C. Paz-Soldan, J.-K. Park. (2025).\href{https://satelite2517.github.io/files/2025_Jul_MHD_workshop.pdf}{\textbf{Kinetic stability of negative-triangularity plasmas}}. 
+\textit{29th Workshop on MHD Stability Control}, Princeton, New Jersey, USA (Jul 2025)
+
+\item[\textbf{[P.3]}] \textbf{S. J. Lee}, J.-K. Park, H.S. Yun, L. Jung, G. W. Nam, G. G. Seo, J. M. Lee (2025). \href{https://satelite2517.github.io/files/2025_Apr_KPS.pdf}{\textbf{Standardized Data Infrastructure for Tokamak: Implementation in VEST (Versatile Experiment spherical tokamak)}}. 
+\textit{2025 Spring meeting of the Korean Physics Society}, Seoul, Korea (Apr 2025)
+
+\item[\textbf{[P.4]}] \textbf{S. J. Lee}, H.S. Yun, Laurent Jung, Jung-Hwa Kim, Y.S. Hwang (2024). \href{https://satelite2517.github.io/files/2024_Jun_IFPC.pdf}{\textbf{Improvements of database system and analysis suite in VEST}}. 
+\textit{3rd International Fusion and Plasma conference (IFPC)}, Seoul, Korea (Jun 2024)
+
+\end{enumerate}
+}
+
+% \section{\textbf{Awards \& Honors}}
+% \small{
+%   \begingroup
+%   \leftskip=0.3cm
+%   \textbf{Home Renovation Volunteer}, Habitat for Humanity Korea (\href{https://www.instagram.com/snuhabitat.official/}{Snuhabitat}) \hfill Sep 2021 – Feb 2022\\
+%   \par
+%   \endgroup
+% }
+
+\section{\textbf{Projects}}
+  \resumeSubHeadingListStart
+
+  \resumeProject
+    {\href{https://github.com/OpenFUSIONToolkit/JPEC}{Perturbed Equilibrium Code Hackathon – Columbia Fusion Research Center}}
+    {Tools: Julia, Fortran, GPEC (reference), Plasma Physics Modeling}
+    {Jul 2025}
+    {Columbia, NY, USA [\href{https://fusion.columbia.edu/news/inaugural-hackathon-hosted-fusion-research-center}{\textcolor{darkblue}{\faIcon{globe}}}]}
+  \resumeItemListStart
+    \item Participated in a hackathon to reproduce DCON’s energy-principle-based ideal MHD stability solver in Julia
+    \item Developed coordinate transformation and numerical routines to compute stability analysis from equilibrium
+  \resumeItemListEnd
+
+  \resumeProject
+    {\href{https://github.com/satelite2517/Accelerator_summer_school}{High-Performance CUDA Programming Project – Accelerator Programming Summer School}}
+    {Tools: CUDA, NVIDIA GPU, Nsight, C++}
+    {Aug 2024}
+    {Seoul, Korea}
+  \resumeItemListStart
+    \item Implemented parallel programs in CUDA/C++ for high-throughput computation in GPU 
+    \item Analyzed performance using Nsight Systems, identifying bottlenecks in memory access and execution flow
+  \resumeItemListEnd
+
+  \resumeProject
+    {Text-to-Image Generation with Conditional GAN - 2023 OUTTA Deep Learning Bootcamp}
+    {Tools: PyTorch, Conditional GAN}
+    {Jun 2023 – Aug 2023}
+    {Seoul, Korea}
+  \resumeItemListStart
+    \item Built a text-to-image generation model using conditional GAN architecture and Ranked 2 out of 60 teams
+  \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+\section{\textbf{Teaching Experience}}
+\small{
+  \begingroup
+  \leftskip=0.3cm
+  \textbf{Teaching Assistant}, VEST Winter Camp — SNU \hfill Feb 3–11, 2026\\
+  \hspace*{0.3cm}\footnotesize $\circ$ Tokamak stability course for undergraduate and graduate students\\[0.25em]
+  \textbf{Teaching Assistant}, Computer Architecture — SNU \hfill Fall 2025\\
+  \hspace*{0.3cm}\footnotesize $\circ$ Undergraduate-level course
+  \par
+  \endgroup
+}
+
+\section{\textbf{Leadership \& Volunteer Experiences}}
+\small{
+  \begingroup
+  \leftskip=0.3cm
+  \textbf{Vice President}, \href{https://www.instagram.com/snu_sorijigi/}{Sorijigi (Classical Music Listening Club)} – SNU \hfill Sep 2021 – Feb 2023\\
+  \textbf{Volunteer}, \href{https://www.instagram.com/snuhabitat.official/}{Habitat for Humanity Korea (Snuhabitat) – SNU} \hfill Sep 2021 – Feb 2022\\
+  \textbf{Volunteer}, \href{https://www.instagram.com/tail_snu/}{Tail – SNU} \hfill Aug 2022 – Dec 2023\\
+  \par
+  \endgroup
+}
+
+
+\section{\textbf{Skills \& Additional Informations}}
+ \resumeHeadingSkillStart
+  \resumeSubItem{Programming Languages:}
+    {Python, C/C++, Fortran, Julia, Linux, CUDA, MATLAB, OpenCL, MPI, OpenMP}
+  \resumeSubItem{Simulation Tools:}
+    {DCON, GPEC, BALOO, KineticEFITtime}
+  \resumeSubItem{TOEFL:}
+    {100/120 (Reading 27, Listening 28, Speaking 24, Writing 21)}
+ \resumeHeadingSkillEnd
+
+\end{document}
