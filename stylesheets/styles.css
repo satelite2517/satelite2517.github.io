@@ -189,57 +189,6 @@ header ul a i {
   font-size: 10px;
 }
 
-.visit-stats {
-  margin-top: 12px;
-  text-align: left;
-}
-
-.visit-stats-title {
-  margin-bottom: 6px;
-  color: #264b6d;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.visit-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 6px;
-}
-
-.visit-stat-card {
-  padding: 8px 10px;
-  border: 1px solid #dbe3ea;
-  border-radius: 8px;
-  background: #fafcff;
-}
-
-.visit-stat-label {
-  display: block;
-  margin-bottom: 2px;
-  color: #6f7d8c;
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-}
-
-.visit-stat-value {
-  display: block;
-  color: #17314b;
-  font-size: 17px;
-  font-weight: 600;
-  line-height: 1.1;
-}
-
-.visit-stats-note {
-  margin-top: 6px;
-  color: #8a5a2b;
-  font-size: 11px;
-}
-
-
 section {
   width:630px;
   float:right;
