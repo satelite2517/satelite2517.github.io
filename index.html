@@ -14,7 +14,7 @@
   <body>
     <div class="wrapper">
       <header style="text-align: center;">
-        <img src="images/me2.jpeg" alt="Sunjae Lee" width="200" style="border-radius: 0%;">
+        <img src="images/me2.jpeg" alt="Sunjae Lee" class="profile-photo" style="border-radius: 0%;">
         <p></p>
         <h1>Sunjae Lee</h1>
         <p>
@@ -51,6 +51,20 @@
             </a>
           </li>
         </ul>
+        <div id="visit-stats" class="visit-stats" hidden>
+          <p class="visit-stats-title">Visitors</p>
+          <div class="visit-stats-grid">
+            <div class="visit-stat-card">
+              <span class="visit-stat-label">Today</span>
+              <span id="visit-count-today" class="visit-stat-value">--</span>
+            </div>
+            <div class="visit-stat-card">
+              <span class="visit-stat-label">Total</span>
+              <span id="visit-count-total" class="visit-stat-value">--</span>
+            </div>
+          </div>
+          <p id="visit-stats-note" class="visit-stats-note" hidden></p>
+        </div>
       </header>
 
       <section id="education">
@@ -191,6 +205,58 @@
         <p>© 2026 Sunjae Lee | Last updated: May 2026</p>
       </footer>
     </div>
+    <script>
+      const GOATCOUNTER_SITE = "satelite2517github";
+
+      (function loadVisitStats() {
+        const statsRoot = document.getElementById("visit-stats");
+        const note = document.getElementById("visit-stats-note");
+        const todayTarget = document.getElementById("visit-count-today");
+        const totalTarget = document.getElementById("visit-count-total");
+
+        if (!statsRoot || !todayTarget || !totalTarget || !GOATCOUNTER_SITE) {
+          return;
+        }
+
+        statsRoot.hidden = false;
+
+        const today = new Date();
+        const todayString = [
+          today.getFullYear(),
+          String(today.getMonth() + 1).padStart(2, "0"),
+          String(today.getDate()).padStart(2, "0")
+        ].join("-");
+
+        const baseUrl = "https://" + GOATCOUNTER_SITE + ".goatcounter.com/counter/TOTAL.json";
+
+        const loadCount = async function(url) {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error("Could not load GoatCounter stats");
+          }
+          const data = await response.json();
+          return data.count || "--";
+        };
+
+        Promise.all([
+          loadCount(baseUrl + "?start=" + todayString + "&end=" + todayString),
+          loadCount(baseUrl)
+        ]).then(function(values) {
+          todayTarget.textContent = values[0];
+          totalTarget.textContent = values[1];
+        }).catch(function() {
+          statsRoot.hidden = false;
+          if (note) {
+            note.hidden = false;
+            note.textContent = "Analytics temporarily unavailable.";
+          }
+        });
+      })();
+    </script>
+    <script
+      data-goatcounter="https://satelite2517github.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"></script>
     <script src="javascripts/scale.fix.js"></script>
   </body>
 </html>

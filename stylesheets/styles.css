@@ -101,15 +101,33 @@ img {
 
 header {
   margin-left: -50px; 
-  width:300px;
+  width:280px;
   float:left;
   position:fixed;
   -webkit-font-smoothing:subpixel-antialiased;
 }
 
+header h1 {
+  font-size: 22px;
+  margin: 8px 0 10px;
+}
+
+header p {
+  margin: 0 0 8px;
+  font-size: 13px;
+  line-height: 1.38;
+}
+
+.profile-photo {
+  width: 168px;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
 header ul {
   list-style:none;
-  height:35px;
+  height:31px;
   padding:0;
   background: #f4f4f4;
   border-radius:5px;
@@ -121,7 +139,7 @@ header li {
   width:24%;
   float:left;
   border-right:1px solid #e0e0e0;
-  height:35px;
+  height:31px;
 }
 
 header li:first-child a {
@@ -136,9 +154,9 @@ header ul a {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size:11px;
+  font-size:10px;
   color:#999;
-  height: 35px;
+  height: 31px;
   text-align:center;
   padding-top:0;
 }
@@ -168,18 +186,68 @@ header ul a strong {
 
 header ul a i {
   margin-right:1%;
+  font-size: 10px;
+}
+
+.visit-stats {
+  margin-top: 12px;
+  text-align: left;
+}
+
+.visit-stats-title {
+  margin-bottom: 6px;
+  color: #264b6d;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.visit-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.visit-stat-card {
+  padding: 8px 10px;
+  border: 1px solid #dbe3ea;
+  border-radius: 8px;
+  background: #fafcff;
+}
+
+.visit-stat-label {
+  display: block;
+  margin-bottom: 2px;
+  color: #6f7d8c;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.visit-stat-value {
+  display: block;
+  color: #17314b;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.visit-stats-note {
+  margin-top: 6px;
+  color: #8a5a2b;
   font-size: 11px;
 }
 
 
 section {
-  width:650px;
+  width:630px;
   float:right;
   padding-left: 0px;
   padding-bottom: 0px;
   border: none;
   border-bottom: 1px solid #e5e5e5;
-  margin-right: -30px; 
+  margin-right: -10px; 
 }
 
 small {
@@ -337,5 +405,3 @@ footer {
     color:#444;
   }
 }
-
-
